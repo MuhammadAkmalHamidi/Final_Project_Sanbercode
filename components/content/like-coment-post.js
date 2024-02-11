@@ -18,12 +18,12 @@ import { FaImage } from "react-icons/fa6";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 import { FaRegComment } from "react-icons/fa";
+import { Field, Form, Formik } from "formik";
+import { mutate } from "swr";
 import Axios from "axios";
 import Cookies from "js-cookie";
-import { Field, Form, Formik } from "formik";
 import axios from "axios";
 import AllLikes from "./modal-all-likes";
-import { mutate } from "swr";
 
 export default function LikeCommentPost({ setReload, reload, id, item, getTime }) {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -7,7 +7,7 @@ export default function Register() {
     return(
         <Flex w={"100%"}>
             <Flex w={"75%"}  display={{base:"none", lg:"flex"}}>
-                <Flex w={"100%"} h={"100vh"} bgImage={`/3275434.jpg`} backgroundSize={"cover"}></Flex>
+                <Flex w={"100%"} h={"100vh"} bgImage={`url(https://source.unsplash.com/random?snow-mountain)`} backgroundSize={"cover"}></Flex>
             </Flex>
             <Flex pt={"5%"} w={{base:"100%", lg:"50%"}}>
                 <FormForgotPassword />

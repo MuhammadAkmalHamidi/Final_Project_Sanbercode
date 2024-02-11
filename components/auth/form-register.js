@@ -1,17 +1,16 @@
 import { Box, Button, Flex, Input } from "@chakra-ui/react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { IoEye, IoEyeOff } from "react-icons/io5";
-import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
+import { useRouter } from "next/router";
 import * as Yup from "yup";
 import Axios from "axios";
 import Swal from "sweetalert2";
-import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 export default function FormRegister() {
   const [show, setShow] = useState(false);
-  const navigate = useRouter()
+  const navigate = useRouter();
   const handleShow = () => {
     setShow(!show);
   };
@@ -24,16 +23,15 @@ export default function FormRegister() {
 
   const handleSubmit = async (value) => {
     try {
-      const response = await Axios.post(
-        "https://paace-f178cafcae7b.nevacloud.io/api/register",
-        value
-      );
+      const response = await Axios.post("/api/register", value);
+      console.log(response);
       Swal.fire({
         title: response?.data?.massage || "Register Success",
         icon: "success",
       });
-      navigate.push("/login");
+      // navigate.push(" /login");
     } catch (error) {
+      console.log(error);
       Swal.fire({
         title: error?.response?.data.message || "Something wrong",
         icon: "warning",

@@ -2,11 +2,11 @@ import { Box, Button, Flex, Input, Textarea } from "@chakra-ui/react";
 import { MdOutlineGifBox, MdOutlineAttachFile } from "react-icons/md";
 import { FaRegSmile } from "react-icons/fa";
 import { FaImage } from "react-icons/fa6";
+import { Field, Form, Formik } from "formik";
+import { mutate } from "swr";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { Field, Form, Formik } from "formik";
-import { mutate } from "swr";
 
 export default function FormCreateContent() {
   const token = Cookies.get("token");

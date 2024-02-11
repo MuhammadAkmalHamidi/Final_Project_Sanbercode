@@ -2,13 +2,13 @@ import { Box, Button, Flex, Input } from "@chakra-ui/react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
+import { useRouter } from "next/router";
 import * as Yup from "yup";
 import Axios from "axios";
 import Swal from "sweetalert2";
-import { useState } from "react";
 import Link from "next/link";
 import Cookies from "js-cookie";
-import { useRouter } from "next/router";
 
 export default function FormLogin() {
   const [show, setShow] = useState(false);
@@ -27,15 +27,15 @@ export default function FormLogin() {
   const handleSubmit = async (value) => {
     try {
       const response = await Axios.post(
-        `https://paace-f178cafcae7b.nevacloud.io/api/login`,
+        '/api/login',
         value
         );
         Cookies.set('token',response.data.data.token, { expires: new Date(response.data.data.expires_at)})
+        route.push('/')
         Swal.fire({
         title: "Welcome to Sanber Daily",
         icon: "success",
       });
-      route.push('/')
       
     } catch (error) {
       Swal.fire({
@@ -144,7 +144,7 @@ export default function FormLogin() {
           </Form>
         </Formik>
         <Flex justifyContent={"space-between"} mt={"10px"}>
-          <Link href={"/reset-password"} cursor={"pointer"}>
+          <Link href={"/forgot-password"} cursor={"pointer"}>
             Forgot password
           </Link>
           <Link href={"/register"} cursor={"pointer"}>

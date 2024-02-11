@@ -1,11 +1,11 @@
-import axios from "axios";
-import Cookies from "js-cookie";
 import { Avatar, Box, Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaRegComment } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
+import axios from "axios";
+import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 
 export default function AllComment({id, setReload, reload}) {

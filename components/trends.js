@@ -4,13 +4,14 @@ import { IoIosSearch } from "react-icons/io";
 export default function Trends() {
   return (
     <Box
-      py={"5px"}
+      py={"30px"}
       px={"20px"}
-    //   bgColor={"gray.200"}
+      borderLeft={"1px solid"}
+      borderColor={"gray.200"}
       h={"100vh"}
       position={"fixed"}
       right={0}
-      w={"20%"}
+      w={"25%"}
     >
       <Flex
         bg={"gray.700"}

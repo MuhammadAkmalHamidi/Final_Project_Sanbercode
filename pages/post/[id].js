@@ -1,14 +1,15 @@
-import AllComment from "@/components/content/all-comment";
-import LikeCommentPost from "@/components/content/like-coment-post";
-import Layout from "@/layout";
 import { Avatar, Box, Button, Flex, Input, Textarea } from "@chakra-ui/react";
-import axios from "axios";
 import { Field, Form, Formik } from "formik";
-import Cookies from "js-cookie";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import AllComment from "@/components/content/all-comment";
+import LikeCommentPost from "@/components/content/like-coment-post";
+import Layout from "@/layout";
+import axios from "axios";
+import Cookies from "js-cookie";
+import Link from "next/link";
+import useSWR from "swr"
 
 export default function DetailPage() {
   const route = useRouter();
@@ -20,12 +21,12 @@ export default function DetailPage() {
   const getPostById = async () => {
     try {
       const response = await axios.get(
-        `https://paace-f178cafcae7b.nevacloud.io/api/post/${id}`,
+        `/api/detailContent`,
         {
           headers: { Authorization: `Bearer ${token}` },
+          params: {id: id}
         }
       );
-
       setData(response.data.data);
     } catch (error) {}
   };
@@ -76,7 +77,7 @@ export default function DetailPage() {
   return (
     <>
       <Layout>
-        <Box px={"25%"} pt={"20px"} w={"full"}>
+        <Box pl={"23%"} pr={"30%"} pt={"20px"} w={"100%"} >
           <Flex alignItems={"center"} gap={"20px"}>
             <Link href={"/"}>
               <IoIosArrowRoundBack size={"40px"} />
@@ -85,9 +86,9 @@ export default function DetailPage() {
               Post
             </Flex>
           </Flex>
-          <Flex gap={"10px"}>
+          <Flex gap={"10px"} w={"100%"}>
             <Avatar name={data?.user?.name} mt={"35px"} />
-            <Box mt={"30px"}>
+            <Box mt={"30px"} w={"100%"}>
               <Box alignItems={"center"}>
                 <Flex color={"gray.700"} alignItems={"center"} gap={"5px"}>
                   <Flex fontWeight={"bold"} fontSize={"20px"}>

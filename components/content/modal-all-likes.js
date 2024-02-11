@@ -11,9 +11,9 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
 
 export default function AllLikes({ totalLikes, post_id }) {
   const { isOpen, onOpen, onClose } = useDisclosure();

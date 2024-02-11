@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Layout metaTitle={"Home"}>
 
-        <Box ml={"5%"} pl={"20%"} pr={"25%"} w={"100%"}>
+        <Box ml={"5%"} pl={"20%"} pr={"30%"} w={"100%"}>
           <FormCreateContent />
           <AllContent />
         </Box>

@@ -23,11 +23,12 @@ export default function Notifications() {
   const getAllNotif = async () => {
     try {
       const response = await axios.get(
-        `https://paace-f178cafcae7b.nevacloud.io/api/notifications`,
+        `/api/notification`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+      console.log(response);
       setData(response.data.data);
     } catch (error) {
       console.log(error);
@@ -66,7 +67,7 @@ export default function Notifications() {
   return (
     <>
       <Layout metaTitle={"Notification"}>
-        <Box w={"100%"} pt={"20px"} px={"25%"}>
+        <Box w={"100%"} pt={"20px"} pl={"25%"} pr={"30%"}>
           <Flex gap={"20px"} alignItems={"center"}>
             <IoIosArrowRoundBack
               cursor={"pointer"}
@@ -81,7 +82,7 @@ export default function Notifications() {
             <TabList
               borderBottom={"1px solid"}
               borderColor={"gray.300"}
-              gap={"250px"}
+              gap={"200px"}
             >
               <Tab fontWeight={"bold"} color={"gray.700"}>
                 All
